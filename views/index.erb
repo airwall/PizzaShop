@@ -1,10 +1,51 @@
-<h3>Welcome to PizzaShop</h3>
 
 
 
-   <div class="form-inline">
-    <label for="number"></label>
-    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="0" onchange="aaa">
+<div class='container-fluid col-md'>
+<p></p>
+<div class="row">
+  <% @product.each do |p| %>
  
-  <button class="btn btn-primary" onclick="something()" >ClickMe</button>
-   </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= p.path_to_image%>" alt="<%= p.title%>">
+      <div class="caption">
+        <h3 align="center"><%= p.title %></h3>
+        
+        <div class="alert alert-info" role="alert">
+        <p align="center"><%= p.description%></p>
+        </div>
+        <p></p>
+        <p align="center">
+								<%if p.is_spicy? then @variation_spicy = 'label label-success'%>
+					        	<%else%> 
+					        		<%@variation_spicy = 'label label-default'%> 
+					       		 <%end%>
+        	<span class="<%=@variation_spicy%>">Spicy</span> 
+
+						        <%if p.is_veg? then @variation_veg = 'label label-success'%> 
+						        <%else%>  
+						       			 <%@variation_veg = 'label label-default'%> 
+						   		<%end%>
+   			 <span class="<%=@variation_veg%>">Best Offert</span> 
+
+   								<%if p.is_best_offer? then @variation_offer = 'label label-success'%> 
+						        <%else%>  
+						       			 <%@variation_offer = 'label label-default'%> 
+						   		<%end%>
+   			 <span class="<%=@variation_veg%>">Vegetarian</span> 
+       </p>
+        <p align="center"><a href="#" class="btn btn-default btn-sm btn-block" role="button">Add to card</a> </p>
+      </div>
+    </div>
+  </div>
+
+  <%end%>
+
+
+</div>
+</div>
+
+
+
+
