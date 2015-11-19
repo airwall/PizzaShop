@@ -7,14 +7,14 @@ class AddProducts < ActiveRecord::Migration
   					:size => 30,
   					:is_spicy => false,
   					:is_veg => false,
-  					:is_best_offer => false,
+  					:is_best_offer => true,
   					:path_to_image => '/img/1.png'
 
   	Product.create  :title => 'Pepperoni', 
   					:description => 'Nice pepperoni pizza', 
   					:price => 78,
   					:size => 30,
-  					:is_spicy => false,
+  					:is_spicy => true,
   					:is_veg => false,
   					:is_best_offer => true,
   					:path_to_image => '/img/2.png'
