@@ -17,6 +17,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/app.js"></script>
+
+
+    
 	</head>
 	<body>
 		<div class="container">
@@ -41,9 +44,10 @@
 			      </ul>
 			    <ul class="nav navbar-nav">
 			      
-			      <li><a href="/contacts"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+			      <li><a href="/contacts"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><abbr title="Products" style="size:small" class="output initialism"></abbr></span></a></li>
+
 			    </ul>
-			  </div><!--/.nav-collapse -->
+			    </div><!--/.nav-collapse -->
 			</nav>
 
 			<div>
@@ -57,5 +61,9 @@
 
 	</div>
 
+	<script type="text/javascript">
+	var result = window.localStorage.getItem('total');
+	$('.output').html('('+ result +')');
+	</script>
   </body>
 </html>
