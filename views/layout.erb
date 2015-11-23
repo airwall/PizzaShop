@@ -42,10 +42,10 @@
 			      <li><a href="/something">Something</a></li>
 			      <li><a href="/contacts">Contacts</a></li>
 			      </ul>
-			    <ul class="nav navbar-nav">
+			    <ul class="nav navbar-nav navbar-right">
 			      
 			      <li><a href="/contacts"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><abbr title="Products" style="size:small" class="output initialism"></abbr></span></a></li>
-
+			      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			    </ul>
 			    </div><!--/.nav-collapse -->
 			</nav>
@@ -62,8 +62,18 @@
 	</div>
 
 	<script type="text/javascript">
-	var result = window.localStorage.getItem('total');
-	$('.output').html('('+ result +')');
+		var total = 0;
+		for(var i in localStorage)
+		{
+		    console.log(localStorage[i]);
+		}
+			for(var i=0, len=localStorage.length; i<len; i++) {
+			var key = localStorage.key(i);
+		    var value = localStorage[key];
+		    total = total  + value*1;   
+		}
+			console.log(total);
+	 $('.output').html('('+ total +')');
 	</script>
   </body>
 </html>
