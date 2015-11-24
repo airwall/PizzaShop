@@ -1,10 +1,20 @@
 
+
 function add_to_cart(id)
 {
 	var key_id = 'product_' + id;
  	var x = window.localStorage.getItem(key_id);
  	x = x * 1 + 1;
  	window.localStorage.setItem(key_id, x);
+
+ 	update_orders_button();
+}
+
+
+function update_orders_button()
+{
+	var text = 'Cart('+ number_of_products_in_cart() +')';
+	$('#orders_btn').val(text);
 }
 
 
@@ -23,7 +33,7 @@ for(var i=0, len=localStorage.length; i<len; i++)
 		total = total  + value*1;   
 	}
 }
-	$('.output').html('('+ total +')');
+	// $('.output').html('('+ total +')');
 	return total;
 }
 
