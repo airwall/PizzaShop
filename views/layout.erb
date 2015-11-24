@@ -16,8 +16,8 @@
     <script src="/vendor/jquery-1.9.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+   
     <script src="/app.js"></script>
-
 
     
 	</head>
@@ -60,20 +60,6 @@
 			</div>
 
 	</div>
-
-	<script type="text/javascript">
-		var total = 0;
-		for(var i in localStorage)
-		{
-		    console.log(localStorage[i]);
-		}
-			for(var i=0, len=localStorage.length; i<len; i++) {
-			var key = localStorage.key(i);
-		    var value = localStorage[key];
-		    total = total  + value*1;   
-		}
-			console.log(total);
-	 $('.output').html('('+ total +')');
-	</script>
+	 
   </body>
 </html>
