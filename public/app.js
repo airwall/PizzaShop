@@ -37,3 +37,18 @@ for(var i=0, len=localStorage.length; i<len; i++)
 	return total;
 }
 
+function remake_key_id()
+{
+	
+	var int_id = ""
+	for(var i=0, len=localStorage.length; i<len; i++) 
+{
+	var key = localStorage.key(i);
+
+	if(key.indexOf('product_') == 0)
+	{
+		int_id = key.replace("product_", "");  
+		  
+	}
+	
+}}

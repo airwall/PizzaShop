@@ -44,11 +44,15 @@
 			      </ul>
 			    <ul class="nav navbar-nav navbar-right">
 			      
-			      <li><a href="/contacts"><button type="text" class="btn btn-default btn-md glyphicon glyphicon-shopping-cart output">
-  										 </button></a></li>
-			      <!-- li>
-			      	<a><input id='orders_btn' type="submit" class="btn btn-default btn-md glyphicon glyphicon-shopping-cart" ></input></a>
-			      </li> -->
+			      <!-- <li><a href="/cart"><button type="text" class="btn btn-default btn-md glyphicon glyphicon-shopping-cart output">
+  										 </button></a></li> -->
+			      <li>
+			      	<a>
+			      	<form method="post" action="/index">
+			      		<input type="text"  id="orders_form" placeholder="Email">
+			      
+			      	<input id='orders_btn' type="submit" class="btn btn-default btn-md glyphicon glyphicon-shopping-cart" ></input></a>	</form>
+			      </li>
 			      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			    </ul>
 			    </div><!--/.nav-collapse -->
@@ -69,8 +73,11 @@
 
 	</div>
 	<script type="text/javascript">
-
-	$('.output').html('('+ number_of_products_in_cart() +')');
+		$(function() 
+		{
+      update_orders_button()
+    });
+	
 	 </script>
   </body>
 </html>
