@@ -67,3 +67,13 @@ end
 get '/orders' do
 	erb :orders
 end
+
+post '/orders' do
+	delete = params[:delete]
+	delete.each do |k,v|
+		if Client.destroy(v)
+			@alert = "Order id: #{v} deleted!"
+		end
+	end
+	erb :orders
+end

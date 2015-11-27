@@ -1,10 +1,30 @@
-<div class="row">
 
-
-  <div class="col-md-2">.col-md-1</div>
-  <div class="col-md-2">.col-md-1</div>
-  <div class="col-md-3">.col-md-1</div>
-  <div class="col-md-5">.col-md-1</div>
+<p><%=@delete%></p>
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Adress</th>
+    <th>Details</th>
+    <th></th>
+  </thead>
+ 
+  <%@orders.each do |item|%>
+  <tbody>
   
-</div>
-</div>
+    <td><%=item.name%></td>
+    <td><%=item.phone%></td>
+    <td><%=item.adress%></td>
+    <td><ol><%=item.order%></ol></td>
+    
+    <td> 
+     <form action="/orders" method="POST"  role="form" >
+    <input type="hidden" name='delete[<%=item.id%>]' value="<%=item.id%>"> 
+    <button class="btn btn-primary btn-xs" type="submit" >Delete</button>
+    </form>
+    </td>
+
+  </tbody>
+        <%end%>
+        
+</table>

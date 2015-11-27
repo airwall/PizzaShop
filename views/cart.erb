@@ -21,7 +21,7 @@
 	<%total_price += @product.find(k).price * v.to_i%>
 	<%total_qty += v.to_i %>
 
-	<%client_details += @product.find(k).title + " - " +  @product.find(k).price.to_s + " Lei: " + v + "\n"%>
+	<%client_details += "<li><strong>" + @product.find(k).title + "</strong>, Qty: <strong>" + v + "</strong></li>"%>
 
 <tr> 
 <td><%=@product.find(k).title%></td> 
@@ -53,7 +53,7 @@
   <div class="form-grup">
 		  <label>Adress</label>
 		  <textarea type="text" name='client[adress]' class="form-control"  placeholder="Street, block, ap." > </textarea>
-		  <input type="hidden" name='client[order]' value="<%=client_details%> Total Price: <%=total_price%> Lei" > 
+		  <input type="hidden" name='client[order]' value='<%=client_details%> <p style="color:red"><strong>Total Price: <%=total_price%> Lei</strong></p>' >
 </div>	 
   <p></p>
 <div class="form-group">
