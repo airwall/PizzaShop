@@ -1,29 +1,40 @@
 
 
 
+<div class="row">
+  <div class="col-md-12">
 
-<table class="table table-bordered"> 
+<table class="table table-striped"> 
 <thead> 
 <tr> 
 
 <th>Name</th> 
-<th></th> 
+<th>Price</th>
 <th>Quantity</th> 
 </tr> 
-
 </thead> 
 <tbody> 
-<%@id_and_number_of_products.each do |k, v|%>
-<tr> 
 
+<%total_price = 0%>
+<%total_qty = 0%>
+<%@id_and_number_of_products.each do |k, v|%>
+
+	<%total_price += @product.find(k).price * v.to_i%>
+	<%total_qty += v.to_i %>
+
+<tr> 
 <td><%=@product.find(k).title%></td> 
-<td><div class="col-xs-1 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="<%=@product.find(k).path_to_image %>" alt="...">
-    </a>
-  </div></td> 
+ <td><%=@product.find(k).price%></td>
+ 
 <td><%=v%></td> 
 </tr> 
 <%end%>
+<td></td>
+<td><strong>Total Price: <%=total_price%> Lei</strong></td>
+<td><strong>Total: <%=total_qty%></strong></td>
+
+
 </tbody> 
 </table>
+ </div>
+</div>
