@@ -21,6 +21,7 @@ end
 	
 before do
 	@product = Product.all
+	@orders = Client.all
 end
 
 def split_orders_input orders_input
@@ -45,7 +46,6 @@ get '/about' do
 end
 
 get '/cart' do
-	orders_input = Product.new
 	erb :cart
 end
 
@@ -55,13 +55,15 @@ post '/cart' do
 	erb :cart
 end
 
-post '/send_order' do
+post '/place_order' do
 	@client = params[:client]
 	@c = Client.new params[:client]
-
 	if @c.save
 		@alert = "Your order send!"
 		erb :index
 	end
+end
 
+get '/orders' do
+	erb :orders
 end
