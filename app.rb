@@ -8,6 +8,13 @@ set :database, "sqlite3:pizzashop.db"
 
 class Product < ActiveRecord::Base 
 end
+
+class Clients < ActiveRecord::Base 
+end
+
+after do
+  ActiveRecord::Base.connection.close
+end
 	
 before do
 	@product = Product.all
@@ -42,4 +49,9 @@ post '/cart' do
 	orders_input = params[:order]
 	@id_and_number_of_products = split_orders_input orders_input
 	erb :cart
+end
+
+post '/send_order' do
+	@client = params[:client]
+	@c 
 end
