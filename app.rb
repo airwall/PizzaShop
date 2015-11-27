@@ -9,7 +9,10 @@ set :database, "sqlite3:pizzashop.db"
 class Product < ActiveRecord::Base 
 end
 
-class Clients < ActiveRecord::Base 
+class Client < ActiveRecord::Base 
+	validates :name, presence: true
+	validates :phone, presence: true
+	validates :adress, presence: true
 end
 
 after do
@@ -42,6 +45,7 @@ get '/about' do
 end
 
 get '/cart' do
+	orders_input = Product.new
 	erb :cart
 end
 
@@ -53,5 +57,11 @@ end
 
 post '/send_order' do
 	@client = params[:client]
-	@c 
+	@c = Client.new params[:client]
+
+	if @c.save
+		@alert = "Your order send!"
+		erb :index
+	end
+
 end
