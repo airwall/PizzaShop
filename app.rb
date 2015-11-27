@@ -13,6 +13,18 @@ before do
 	@product = Product.all
 end
 
+def split_orders_input orders_input
+	hh = {}
+	orders_input.each do |k,v|
+		s = v.split(",")
+			s.each do |item|
+				s2 = item.split("-")
+				hh[s2[0]] = s2[1]
+			end
+		return hh
+	end
+end
+
 get '/' do
 	erb  :index
 end
@@ -28,13 +40,6 @@ end
 
 post '/cart' do
 	orders_input = params[:order]
-	@hh = {}
-		orders_input.each do |k,v|
-			s = v.split(",")
-			s.each do |item|
-				s2 = item.split("-")
-				@hh[s2[0]] = s2[1]
-			end
-		end
+	@hh = split_orders_input orders_input
 	erb :cart
 end
