@@ -25,3 +25,16 @@ end
 get '/cart' do
 	erb :cart
 end
+
+post '/cart' do
+	orders_input = params[:order]
+	@hh = {}
+		orders_input.each do |k,v|
+			s = v.split(",")
+			s.each do |item|
+				s2 = item.split("-")
+				@hh[s2[0]] = s2[1]
+			end
+		end
+	erb :cart
+end
