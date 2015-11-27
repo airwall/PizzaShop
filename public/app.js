@@ -8,6 +8,14 @@ function add_to_cart(id)
  	window.localStorage.setItem(key_id, x);
 
  	update_orders_button();
+ 	update_orders_form();
+}
+
+
+function update_orders_form()
+{
+	var nmbrform = remake_key_id();
+	$('#orders_form').val(nmbrform);
 }
 
 
@@ -44,11 +52,13 @@ function remake_key_id()
 	for(var i=0, len=localStorage.length; i<len; i++) 
 {
 	var key = localStorage.key(i);
-
+	var value = localStorage[key];
 	if(key.indexOf('product_') == 0)
 	{
-		int_id = key.replace("product_", "");  
-		  
+		int_id = int_id + key.replace("product_", "") + "-" + value + ",";  
+		
 	}
 	
-}}
+}
+		return int_id
+}
