@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration
   		t.string  :path_to_image
 
 
-  		t.timestamp null: false
+  		t.timestamps null: false
   	end
   end
 end

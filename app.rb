@@ -21,7 +21,6 @@ end
 	
 before do
 	@product = Product.all
-	@orders = Client.all
 end
 
 def split_orders_input orders_input
@@ -65,6 +64,7 @@ post '/place_order' do
 end
 
 get '/orders' do
+	@orders = Client.order ('created_at DESC')
 	erb :orders
 end
 

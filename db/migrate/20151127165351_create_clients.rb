@@ -6,7 +6,7 @@ class CreateClients < ActiveRecord::Migration
   		t.text    :adress
   		t.text    :order
 
-  		t.timestamp null: false
+  		t.timestamps null: false
   	end
   end
 end

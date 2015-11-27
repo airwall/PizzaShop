@@ -16,6 +16,7 @@
     <td><%=item.phone%></td>
     <td><%=item.adress%></td>
     <td><ol><%=item.order%></ol></td>
+    <td><%=item.created_at.strftime("%d/%m/%Y | %H:%M")%></td>
     
     <td> 
      <form action="/orders" method="POST"  role="form" >
