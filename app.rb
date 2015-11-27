@@ -40,6 +40,6 @@ end
 
 post '/cart' do
 	orders_input = params[:order]
-	@hh = split_orders_input orders_input
+	@id_and_number_of_products = split_orders_input orders_input
 	erb :cart
 end
