@@ -21,6 +21,7 @@ end
 	
 before do
 	@product = Product.all
+	@orders = Client.all
 end
 
 def split_orders_input orders_input
@@ -58,8 +59,11 @@ post '/place_order' do
 	@client = params[:client]
 	@c = Client.new params[:client]
 	if @c.save
-		@alert = "Your order send!"
+		@alert = "Your order has been placed!"
 		erb :index
+	else
+		@error = @c.errors.full_messages.first
+		erb "Error"
 	end
 end
 
