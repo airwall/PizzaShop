@@ -1,5 +1,7 @@
 
-
+<%if @id_and_number_of_products && @id_and_number_of_products.length > 0 then %>
+                
+            
 
 <div id="cart">
 <table class="table table-striped"> 
@@ -36,7 +38,9 @@
 <td><strong>Total: <%=total_qty%></strong></td>
 </tbody> 
 </table>
-</div>
+
+
+
 
 
 <div class="col-md-6">
@@ -66,4 +70,9 @@
 
 </form>
 </div>
+</div>
 
+<%else%>
+<div class="alert alert-info" role="alert"><p>Your cart now is empty!</p></div>
+
+<% end %>
