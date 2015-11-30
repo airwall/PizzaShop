@@ -60,7 +60,7 @@ post '/place_order' do
 	@c = Client.new params[:client]
 	if @c.save
 		@alert = "Your order has been placed!"
-		erb :index
+		erb :order_placed
 	else
 		@error = @c.errors.full_messages.first
 		erb "Error"

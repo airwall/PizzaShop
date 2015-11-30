@@ -70,9 +70,6 @@
 
 			      <%if @alert && @alert.length > 0 then %>
 			          <div class="alert alert-info"><%=@alert%></div>
-			          <script type="text/javascript">
-			          		localStorage.clear();			       	
-			          </script>
 			      <% end %>
 
 			      <%= yield %>

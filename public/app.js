@@ -61,3 +61,9 @@ function order_form_input()
 }
 		return int_id
 }
+
+function cancel_order()
+{
+	localStorage.clear();
+	return false;	
+}
